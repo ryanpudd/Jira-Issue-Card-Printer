@@ -753,9 +753,15 @@
 
       // RapidBoard
       if (/.*\/secure\/RapidBoard.jspa.*/g.test(document.URL)) {
-        return $('div[data-issue-key].ghx-selected').map(function() {
-          return $(this).attr('data-issue-key');
-        });
+        if (/.*view=detail.*/g.test(document.URL)) {
+				  return $('div[data-issue-key].ghx-issue-subtask').map(function() {
+					  return $(this).attr('data-issue-key');
+				  });			
+			  } else {
+				  return $('div[data-issue-key].ghx-selected').map(function() {
+					  return $(this).attr('data-issue-key');
+				  });
+			  }
       }
 
       return [];
