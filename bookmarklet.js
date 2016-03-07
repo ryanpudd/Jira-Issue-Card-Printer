@@ -111,10 +111,10 @@
     addStringFunctions();
     loadSettings();
 
-    global.hostOrigin = "https://qoomon.github.io/Jira-Issue-Card-Printer/";
+    global.hostOrigin = "https://cdn.rawgit.com/ryanpudd/Jira-Issue-Card-Printer/ryanpudd-patch-1/";
     if (global.isDev) {
       console.log("DEVELOPMENT");
-      global.hostOrigin = "https://rawgit.com/qoomon/Jira-Issue-Card-Printer/develop/";
+      global.hostOrigin = "https://rawgit.com/ryanpudd/Jira-Issue-Card-Printer/ryanpudd-patch-1/";
     }
     global.resourceOrigin = global.hostOrigin + "resources/";
 
@@ -123,7 +123,7 @@
     }));
 
     promises.push(httpGetCORS(global.hostOrigin + "card.css").then(function(data){
-      global.cardCss = data.replace(/https:\/\/qoomon.github.io\/Jira-Issue-Card-Printer\/resources/g, global.resourceOrigin);
+      global.cardCss = data.replace(/https:\/\/cdn.rawgitcom\/ryanpudd\/Jira-Issue-Card-Printer\/resources/g, global.resourceOrigin);
     }));
 
     promises.push(httpGetCORS(global.hostOrigin + "printPreview.html").then(function(data){
@@ -131,7 +131,7 @@
     }));
 
     promises.push(httpGetCORS(global.hostOrigin + "printPreview.css").then(function(data){
-      global.printPreviewCss = data.replace(/https:\/\/qoomon.github.io\/Jira-Issue-Card-Printer\/resources/g, global.resourceOrigin);
+      global.printPreviewCss = data.replace(/https:\/\/cdn.rawgitcom\/ryanpudd\/Jira-Issue-Card-Printer\/resources/g, global.resourceOrigin);
     }));
 
     return Promise.all(promises);
